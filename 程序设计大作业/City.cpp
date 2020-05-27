@@ -82,3 +82,12 @@ bool City::judge()
 		return true;
 	return false;
 }
+
+int City::changeTroops(bool flag, int change)
+{
+	if (flag == 0) {
+		troops -= change;
+	}
+	else troops += change;
+	return troops;
+}

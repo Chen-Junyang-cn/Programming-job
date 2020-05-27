@@ -12,6 +12,7 @@ class City
 	
 public:
 	City(const string s);
+	int changeTroops(bool ,int);//改变兵力，返回变化后值
 	void show() ;		//输出还有多少兵力
 	void fight();		//战斗阶段
 	void adjustTroops(double);//留一个对外接口用于改变私有数据的兵力

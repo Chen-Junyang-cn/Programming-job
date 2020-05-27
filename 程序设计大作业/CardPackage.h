@@ -20,8 +20,8 @@ public:
 	~CardPackage() {} 
 private:
 	void test1();
-	void test2() { cout << "test function 2" << endl; }
-	void test3() { cout << "test function 3" << endl; }
+	void test2() { cout << "test function 1" << endl; }
+	void test3() { cout << "saber" << endl; }
 	void test4() { cout << "test function 4" << endl; }
 	void test5() { cout << "test function 5" << endl; }
 	void test6() { cout << "test function 6" << endl; }
@@ -30,4 +30,5 @@ private:
 	void test9() { cout << "test function 9" << endl; }
 	void test10() { cout << "test function 10" << endl; }
 };
+
 #endif
