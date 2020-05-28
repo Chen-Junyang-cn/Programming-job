@@ -15,7 +15,7 @@ CardPackage::CardPackage()
 	test[9] = &CardPackage::test10;
 }
 
-void CardPackage::test2()//saber
+void CardPackage::test1()//saber
 {
 	City *temp=&findCity();
 	City *temp_attack = &findCity();
@@ -26,12 +26,74 @@ void CardPackage::test2()//saber
 	temp.troops += 200;
 	temp.show();*/
 }
-void CardPackage::test1()
+void CardPackage::test2()//破釜沉舟
 {
-	cout << "选择你要鼓舞的城池：" << endl;
-	City* temp = &findCity();//使用指针，修改那个目标城市数据
-	cout << "test function 1";
-	(*temp).adjustTroops(1.2);//兵力变为原来的1.2倍
+	City temp = findCity();
+	City temp_attack = findCity();
+	int record = temp.troops;
+	if (temp.belong == "L") {
+		temp.troops = temp_attack.troops > temp.troops ? temp.troops * 1.5 : temp.troops;
+		temp.troops = temp_attack.troops > 2 * temp.troops ? temp.troops * 1.5 : temp.troops;
+	}
+	int difference = temp.troops - record;//差值
+	//需再定义一个变量记录回合//返回一个差值再下一会合减去
+	temp.show();
+}
+void CardPackage::test3()//反间计
+{
+	City temp = findCity();
+	City temp_attack = findCity();
+
+	temp.show();
+}
+void CardPackage::test3()//贤者之心
+{
+	City temp = findCity();
+	City temp_attack = findCity();
+	if (temp.belong == "L") {
+		cardsL.insertCard(); cardsL.insertCard();
+	}
+	else { cardsX.insertCard(); cardsX.insertCard(); }
+	temp.show();
+}
+void CardPackage::test3()//养精蓄锐
+{
+	City temp = findCity();
+	City temp_attack = findCity();
+	if (temp.belong == "L")
+		cards.//访问类链表
+	else
+		temp.show();
+}
+void CardPackage::test3()//战车//群攻
+{
+	City* temp = &findCity();
+	City temp_attack = findCity();
+	//cards检索对方卡牌数量//攻击力设定
+	temp.troops += 100;
+	temp.show();
+}
+void CardPackage::test3()//步兵
+{
+	City temp = findCity();
+	City temp_attack = findCity();
+	temp.troops += 500;
+	temp.show();
+}
+void CardPackage::test3()//枪兵
+{
+	City temp = findCity();
+	City temp_attack = findCity();
+	temp.troops += 500;
+	temp.show();
+}
+void CardPackage::test3()//陷阱
+{
+	City temp = findCity();
+	City temp_attack = findCity();
+	temp.troops += 500;
+	//fight函数内                                                             
+	temp.show();
 }
 
 City& CardPackage::findCity()
