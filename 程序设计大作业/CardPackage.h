@@ -4,15 +4,16 @@
 #include <iostream>
 using namespace std;
 class City;//前向声明不能#include"City.h"头文件,方便后续更改
-class Cards;
 extern City cityL;
 extern City cityX;
 extern City cityMid;
+#include "Cards.h"
 extern Cards cardsL;
 extern Cards cardsX;
 class CardPackage //卡牌包，记录各种卡牌，最终设想使用函数指针数组，将各个功能打包放入数组内统一调用
 {
 	//friend class City;
+	
 public:
 	CardPackage();
 	void(CardPackage::* test[10])();//类函数指针数组的声明
