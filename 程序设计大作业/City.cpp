@@ -1,4 +1,4 @@
-#include "City.h"
+ #include "City.h"
 City::City(const string s)
 {
 	troops = 1000;
@@ -16,11 +16,11 @@ void City::fight()
 	}
 	cout << "选择军队目标的城池（选择己方城池可屯兵）" << endl;
 	City* c2 = &CardPackage::findCity();//使用卡包中寻找城市的功能
-	/*while (c1->distance < c2->distance) //攻击距离不够
+	while (abs(c1->distance - c2->distance) > 1) //两座城池距离大于1，无法直接攻击
 	{
 		cout << "你的军队无法直接到达该城池，请重新选择" << endl;
 		c2 = &CardPackage::findCity();
-	}*/
+	}
 	int c1Num = selectTroops();	//选择出兵数量阶段
 	while (c1Num >= c1->troops)
 	{

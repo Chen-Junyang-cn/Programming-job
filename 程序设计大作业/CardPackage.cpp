@@ -19,12 +19,12 @@ void CardPackage::test2()//saber
 {
 	City *temp=&findCity();
 	City *temp_attack = &findCity();
-	temp_attack->changeTroops(bool )
+	/*temp_attack->changeTroops(bool )
 	cout << "'saber'对";
 	if (temp.belong == "L")cout << "刘邦"; else cout << "项羽";
 	cout << "造成了500点伤害" << endl;
 	temp.troops += 200;
-	temp.show();
+	temp.show();*/
 }
 void CardPackage::test1()
 {

@@ -20,7 +20,7 @@ public:
 	int selectTroops(); //选择出击的军队数量
 	string checkBelong();	  //接口，查看城池的归属
 
-	int distance;		//攻击距离,两个主城池是3，中立城池是1
+	int distance;		//攻击距离。刘邦是1，项羽是3，中立城池是2
 private:
 	double troops;		//兵力
 	string belong;		//归属
