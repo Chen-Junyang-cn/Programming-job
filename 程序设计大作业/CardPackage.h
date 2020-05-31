@@ -20,15 +20,15 @@ public:
 	static City& findCity();	//当用户需要指定城市时，调用这个函数，找到用户输入对应的函数
 	~CardPackage() {} 
 private:
-	void test1();
-	void test2();//破釜沉舟
-	void test3();//反间计
-	void test4();//贤者之心
-	void test5();//养精蓄锐
-	void test6();//战车
-	void test7();//步兵
-	void test8();//枪兵
-	void test9();//弓箭手
+	void saber();
+	void beatback();//破釜沉舟
+	void discord();//反间计
+	void sage_model();//贤者之心
+	void recuperate();//养精蓄锐
+	void chariot();//战车
+	void infantry();//步兵
+	void spearman();//枪兵
+	void archer();//弓箭手
 	void test10();//佯攻
 };
 

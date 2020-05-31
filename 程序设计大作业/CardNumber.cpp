@@ -1,15 +1,15 @@
 #include "CardNumber.h"
 CardNumber::CardNumber()
 {
-	numberPackage[0] = "1";
-	numberPackage[1] = "劝降";
-	numberPackage[2] = "3";
-	numberPackage[3] = "4";
-	numberPackage[4] = "5";
-	numberPackage[5] = "6";
-	numberPackage[6] = "7";
-	numberPackage[7] = "8";
-	numberPackage[8] = "9";
+	numberPackage[0] = "骑兵";
+	numberPackage[1] = "破釜沉舟";
+	numberPackage[2] = "反间计";
+	numberPackage[3] = "贤者之心";
+	numberPackage[4] = "养精蓄锐";
+	numberPackage[5] = "战车";
+	numberPackage[6] = "步兵";
+	numberPackage[7] = "枪兵";
+	numberPackage[8] = "弓箭手";//
 	numberPackage[9] = "10";
 }
 

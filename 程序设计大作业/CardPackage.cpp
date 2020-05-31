@@ -3,19 +3,19 @@
 
 CardPackage::CardPackage()
 {
-	test[0] = &CardPackage::test1;
-	test[1] = &CardPackage::test2;
-	test[2] = &CardPackage::test3;
-	test[3] = &CardPackage::test4;
-	test[4] = &CardPackage::test5;
-	test[5] = &CardPackage::test6;
-	test[6] = &CardPackage::test7;
-	test[7] = &CardPackage::test8;
-	test[8] = &CardPackage::test9;
+	test[0] = &CardPackage::saber;
+	test[1] = &CardPackage::beatback;
+	test[2] = &CardPackage::discord;
+	test[3] = &CardPackage::sage_model;
+	test[4] = &CardPackage::recuperate;
+	test[5] = &CardPackage::chariot;
+	test[6] = &CardPackage::infantry;
+	test[7] = &CardPackage::spearman;
+	test[8] = &CardPackage::archer;
 	test[9] = &CardPackage::test10;
 }
 
-void CardPackage::test1()//saber
+void CardPackage::saber()//saber
 {
 	City* temp = &findCity();
 	City* temp_attack = &findCity();
@@ -27,20 +27,22 @@ void CardPackage::test1()//saber
 	*temp += change;
 	temp->show();
 }
-void CardPackage::test2()//破釜沉舟
+void CardPackage::beatback()//破釜沉舟
 {
 	City* temp = &findCity();
 	City* temp_attack = &findCity();
 	double record = temp->army();
-	if (temp->checkBelong() == "刘邦") temp->adjustTroops(1.5);
-	else temp_attack->adjustTroops(2);
-	temp_attack->army() > temp->army() ? temp->adjustTroops(1.5) : temp->adjustTroops(1);
-	temp_attack->army() > 2 * temp->army() ? temp->adjustTroops(1.2) : temp->adjustTroops(1);
+	if (temp->checkBelong() == "刘邦") {
+		temp_attack->army() > temp->army() ? temp->adjustTroops(1.5) : temp->adjustTroops(1);
+		temp_attack->army() > 2 * temp->army() ? temp->adjustTroops(1.2) : temp->adjustTroops(1);
+	}
+	else temp_attack->army() > temp->army() ? temp->adjustTroops(1.7) : temp->adjustTroops(1);
+	temp_attack->army() > 2 * temp->army() ? temp->adjustTroops(1.4) : temp->adjustTroops(1);
 	double difference = temp->army() - record;//差值
 	//需再定义一个变量记录回合//返回一个差值再下一会合减去
 	temp->show();
 }
-void CardPackage::test3()//反间计
+void CardPackage::discord()//反间计
 {
 	City* temp = &findCity();
 	City* temp_attack = &findCity();
@@ -51,12 +53,12 @@ void CardPackage::test3()//反间计
 		Ctemp_attack = &cardsL;
 	}
 	string seize; Node* i; int j;
-	cout << Ctemp_attack->findhead() << "的卡牌有：";
+	cout << temp->checkBelong() << "的卡牌有：";
 	for (i = Ctemp_attack->findhead(), j = 0; i != nullptr; i = i->next, j++) {//对手卡牌展示
 		cout << i->name << "  ";//对方卡牌名字
 	}
-		cout << "请输入要入手的（对方）卡牌";
-		cin >> seize;
+	cout << "请输入要入手的（对方）卡牌" << endl;
+	cin >> seize;
 		for (i = Ctemp_attack->findhead(); i != nullptr; i = i->next)//反间抢夺卡牌
 		{
 			if (i->next->name == seize)
@@ -74,11 +76,11 @@ void CardPackage::test3()//反间计
 		if (i->next == nullptr) {
 			cout << temp_attack->checkBelong() << "无此牌" << endl;
 			cout << "请重新输入：" << endl;
-			CardPackage::test3();//重新执行函数
+			CardPackage::discord();//重新执行函数
 		}
 	temp->show();
 }
-void CardPackage::test4()//贤者之心
+void CardPackage::sage_model()//贤者之心
 {
 	City* temp = &findCity();
 	City* temp_attack = &findCity();
@@ -88,7 +90,7 @@ void CardPackage::test4()//贤者之心
 	else { cardsX.insertCard(); cardsX.insertCard(); }
 	temp->show();
 }
-void CardPackage::test5()//养精蓄锐
+void CardPackage::recuperate()//养精蓄锐
 {
 	City* temp = &findCity();
 	City* temp_attack = &findCity();
@@ -126,11 +128,11 @@ void CardPackage::test5()//养精蓄锐
 	}
 	if (i == nullptr) {
 		cout << temp->checkBelong() << "无此卡牌，请重新输入：";
-		CardPackage::test5();
+		CardPackage::recuperate();
 	}
 	temp->show();
 }
-void CardPackage::test6()//战车//群攻
+void CardPackage::chariot()//战车//群攻
 {
 	City* temp = &findCity();
 	City* temp_attack = &findCity();
@@ -143,11 +145,11 @@ void CardPackage::test6()//战车//群攻
 	Node* i; int j;
 	for (i = Ctemp_attack->findhead(), j = 0; i != nullptr; i = i->next, j++) {}
 	City change(100 * j);//cards检索对方卡牌数量//攻击力设定
-	*temp -= change;
+	*temp += change;
 	cout << temp->checkBelong() << "兵力增强了" << 100 * j << endl;
 	temp->show();
 }
-void CardPackage::test7()//步兵
+void CardPackage::infantry()//步兵
 {
 	City* temp = &findCity();
 	City* temp_attack = &findCity();
@@ -156,7 +158,7 @@ void CardPackage::test7()//步兵
 	cout << temp->checkBelong() << "兵力增强了1200" << endl;
 	temp->show();
 }
-void CardPackage::test8()//枪兵/暂无回合设定，战力减少
+void CardPackage::spearman()//枪兵/暂无回合设定，战力减少
 {
 	City *temp = &findCity();
 	City *temp_attack = &findCity();
@@ -165,11 +167,11 @@ void CardPackage::test8()//枪兵/暂无回合设定，战力减少
 	cout << temp->checkBelong() << "兵力增强了700" << endl;
 	temp->show();
 }
-void CardPackage::test9()//弓箭手
+void CardPackage::archer()//弓箭手
 {
 	City* temp = &findCity();
 	City* temp_attack = &findCity();
-	City* M = &findCity();
+	City* M = &cityMid;
 	int n = 1000;
 	if (M->checkBelong() == temp->checkBelong()) {
 		n += 700;
