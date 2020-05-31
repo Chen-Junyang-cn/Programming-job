@@ -1,6 +1,6 @@
 #include "CardPackage.h"
 #include "City.h"
-
+#include "Cards.h"
 CardPackage::CardPackage()
 {
 	test[0] = &CardPackage::saber;
@@ -176,7 +176,7 @@ void CardPackage::archer()//弓箭手
 	if (M->checkBelong() == temp->checkBelong()) {
 		n += 700;
 	}
-	else n -= 300;
+	else if(M->checkBelong() == temp_attack->checkBelong()) n -= 300;
 	City change(n);
 	*temp += change;
 	cout << temp->checkBelong() << "兵力增强了" <<n<< endl;
