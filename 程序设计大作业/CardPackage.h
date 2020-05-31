@@ -20,16 +20,16 @@ public:
 	static City& findCity();	//当用户需要指定城市时，调用这个函数，找到用户输入对应的函数
 	~CardPackage() {} 
 private:
-	void test1() { cout << "saber" << endl; }//);
-	void test2() { cout << "beatback" << endl; }//破釜沉舟
-	void test3() { cout << "sowing_discord" << endl; }//反间计
-	void test4() { cout << "sage_model" << endl; }//贤者之心
-	void test5() { cout << "recuperate" << endl; }//养精蓄锐
-	void test6() { cout << "chariot" << endl; }//战车
-	void test7() { cout << "infantry" << endl; }//步兵
-	void test8() { cout << "spearman" << endl; }//枪兵
-	void test9() { cout << "archer" << endl; }//弓箭手
-	void test10() { cout << "test function 10" << endl; }//佯攻
+	void test1();
+	void test2();//破釜沉舟
+	void test3();//反间计
+	void test4();//贤者之心
+	void test5();//养精蓄锐
+	void test6();//战车
+	void test7();//步兵
+	void test8();//枪兵
+	void test9();//弓箭手
+	void test10();//佯攻
 };
 
 #endif
