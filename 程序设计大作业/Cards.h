@@ -23,6 +23,7 @@ public:
 	void useCard();
 	void deleteCard(string);
 	void showCard();
+	Node* findhead() { return head; }//урм╥╫з╣Ц
 private:
 	Node* head;
 };

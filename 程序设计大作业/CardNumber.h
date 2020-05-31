@@ -12,6 +12,7 @@ public:
 	int findNumber(string);	//获得卡牌的编码，在用牌的时候需要
 	string getRandName();	//随机获得名字，在抽牌阶段需要
 	~CardNumber() {};
+	string getname(int order) { return numberPackage[order]; }
 private:
 	string numberPackage[10];//编码包
 };

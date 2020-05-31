@@ -28,7 +28,7 @@ private:
 	void test6() { cout << "chariot" << endl; }//Õ½³µ
 	void test7() { cout << "infantry" << endl; }//²½±ø
 	void test8() { cout << "spearman" << endl; }//Ç¹±ø
-	void test9() { cout << "trap" << endl; }//ÏÝÚå
+	void test9() { cout << "archer" << endl; }//¹­¼ýÊÖ
 	void test10() { cout << "test function 10" << endl; }//Ñð¹¥
 };
 
