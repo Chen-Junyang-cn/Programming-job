@@ -18,7 +18,7 @@ public:
 class Cards :public CardNumber, public CardPackage
 {
 public:
-	Cards();//构造函数，生成一个头节点
+	Cards(const string n);//构造函数，生成一个头节点
 	void insertCard();//获得手牌
 	void useCard();
 	void deleteCard(string);

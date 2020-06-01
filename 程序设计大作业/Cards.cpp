@@ -1,9 +1,10 @@
 #include "Cards.h"
-Cards::Cards() 
+Cards::Cards(const string n) 
 {
 	Node* s = new Node;
 	head = s;
 	head->next = nullptr;
+	head->name = n;
 	insertCard();
 	insertCard();
 	insertCard();

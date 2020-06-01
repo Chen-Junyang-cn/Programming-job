@@ -9,7 +9,7 @@
 #include "CardNumber.h"
 using namespace std;
 City cityL("刘邦"), cityX("项羽"), cityMid("战略城池");
-Cards cardsL, cardsX;
+Cards cardsL("刘邦"), cardsX("项羽");
 int main()
 {
 	srand(int(time(0)));//初始化种子，方便后续随机抽牌
