@@ -17,7 +17,15 @@ CardPackage::CardPackage()
 
 void CardPackage::saber()//saber
 {
+	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
 	City* temp = &findCity();
+	while (temp->checkBelong() != checkBelong())
+	{
+		cout << "该城池不归属你，请重新选择" << endl;
+		temp = &findCity();
+	}
+	cout << "选择对手的城池" << endl;
+	
 	City* temp_attack = &findCity();
 	City injure(500);//伤害临时
 	City change(400);//兵力变化临时
@@ -73,7 +81,7 @@ void CardPackage::discord()//反间计
 				break;
 			}
 		}
-		if (i->next == nullptr) {
+		if (i == nullptr) {
 			cout << temp_attack->checkBelong() << "无此牌" << endl;
 			cout << "请重新输入：" << endl;
 			CardPackage::discord();//重新执行函数
@@ -105,7 +113,7 @@ void CardPackage::recuperate()//养精蓄锐
 		strength[j] = i->name;
 	}//己方卡牌组合成数组
 	for (int k = 0; k < 3; k++) { 
-		record[3] = strength[rand() % j]; cout << record[k]<<"  "; 
+		record[k] = strength[rand() % j]; cout << record[k]<<"  "; 
 	}//随机抽选三张卡牌
 	cout << endl;
 	cout << "请选择卡牌（步兵、骑兵、战车加成较大）：" << endl;
@@ -143,10 +151,10 @@ void CardPackage::chariot()//战车//群攻
 		Ctemp_attack = &cardsL;
 	}
 	Node* i; int j;
-	for (i = Ctemp_attack->findhead(), j = 0; i != nullptr; i = i->next, j++) {}
-	City change(100 * j);//cards检索对方卡牌数量//攻击力设定
+	for (i = Ctemp_attack->findhead(), j = 0; i != nullptr; i = i->next, j+=100) {}
+	City change( j);//cards检索对方卡牌数量//攻击力设定
 	*temp += change;
-	cout << temp->checkBelong() << "兵力增强了" << 100 * j << endl;
+	cout << temp->checkBelong() << "兵力增强了" <<  j << endl;
 	temp->show();
 }
 void CardPackage::infantry()//步兵
