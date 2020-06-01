@@ -19,8 +19,10 @@ void Cards::insertCard()
 	head->next = x;
 }
 
+string Cards::find_name = "空";
 void Cards::useCard()
 {
+	find_name = head->name;
 	string s;
 	cout << endl << "输入你想使用的卡牌：";
 	cin >> s;

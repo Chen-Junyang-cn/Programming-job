@@ -19,14 +19,21 @@ void CardPackage::saber()//saber
 {
 	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
 	City* temp = &findCity();
-	while (temp->checkBelong() != checkBelong())
+	while (temp->checkBelong() != Cards::find_name)
 	{
 		cout << "该城池不归属你，请重新选择" << endl;
 		temp = &findCity();
 	}
 	cout << "选择对手的城池" << endl;
-	
 	City* temp_attack = &findCity();
+	string attack_name;
+	if (Cards::find_name == "刘邦")attack_name = "项羽";
+	else attack_name = "刘邦";
+	while (temp_attack->checkBelong() != attack_name)
+	{
+		cout << "该城池不归属你，请重新选择" << endl;
+		temp_attack = &findCity();
+	}
 	City injure(500);//伤害临时
 	City change(400);//兵力变化临时
 	*temp_attack -= injure;
@@ -37,8 +44,23 @@ void CardPackage::saber()//saber
 }
 void CardPackage::beatback()//破釜沉舟
 {
+	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
 	City* temp = &findCity();
+	while (temp->checkBelong() != Cards::find_name)
+	{
+		cout << "该城池不归属你，请重新选择" << endl;
+		temp = &findCity();
+	}
+	cout << "选择对手的城池" << endl;
 	City* temp_attack = &findCity();
+	string attack_name;
+	if (Cards::find_name == "刘邦")attack_name = "项羽";
+	else attack_name = "刘邦";
+	while (temp_attack->checkBelong() != attack_name)
+	{
+		cout << "该城池不归属你，请重新选择" << endl;
+		temp_attack = &findCity();
+	}
 	double record = temp->army();
 	if (temp->checkBelong() == "刘邦") {
 		temp_attack->army() > temp->army() ? temp->adjustTroops(1.5) : temp->adjustTroops(1);
@@ -52,8 +74,23 @@ void CardPackage::beatback()//破釜沉舟
 }
 void CardPackage::discord()//反间计
 {
+	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
 	City* temp = &findCity();
+	while (temp->checkBelong() != Cards::find_name)
+	{
+		cout << "该城池不归属你，请重新选择" << endl;
+		temp = &findCity();
+	}
+	cout << "选择对手的城池" << endl;
 	City* temp_attack = &findCity();
+	string attack_name;
+	if (Cards::find_name == "刘邦")attack_name = "项羽";
+	else attack_name = "刘邦";
+	while (temp_attack->checkBelong() != attack_name)
+	{
+		cout << "该城池不归属你，请重新选择" << endl;
+		temp_attack = &findCity();
+	}
 	Cards* Ctemp = &cardsL;
 	Cards* Ctemp_attack = &cardsX;
 	if(temp->checkBelong()=="项羽") {
@@ -90,8 +127,23 @@ void CardPackage::discord()//反间计
 }
 void CardPackage::sage_model()//贤者之心
 {
+	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
 	City* temp = &findCity();
+	while (temp->checkBelong() != Cards::find_name)
+	{
+		cout << "该城池不归属你，请重新选择" << endl;
+		temp = &findCity();
+	}
+	cout << "选择对手的城池" << endl;
 	City* temp_attack = &findCity();
+	string attack_name;
+	if (Cards::find_name == "刘邦")attack_name = "项羽";
+	else attack_name = "刘邦";
+	while (temp_attack->checkBelong() != attack_name)
+	{
+		cout << "该城池不归属你，请重新选择" << endl;
+		temp_attack = &findCity();
+	}
 	if (temp->checkBelong() == "刘邦") {
 		cardsL.insertCard(); cardsL.insertCard();//随机插入卡牌
 	}
@@ -100,8 +152,23 @@ void CardPackage::sage_model()//贤者之心
 }
 void CardPackage::recuperate()//养精蓄锐
 {
+	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
 	City* temp = &findCity();
+	while (temp->checkBelong() != Cards::find_name)
+	{
+		cout << "该城池不归属你，请重新选择" << endl;
+		temp = &findCity();
+	}
+	cout << "选择对手的城池" << endl;
 	City* temp_attack = &findCity();
+	string attack_name;
+	if (Cards::find_name == "刘邦")attack_name = "项羽";
+	else attack_name = "刘邦";
+	while (temp_attack->checkBelong() != attack_name)
+	{
+		cout << "该城池不归属你，请重新选择" << endl;
+		temp_attack = &findCity();
+	}
 	Cards* Ctemp = &cardsL;
 	Cards* Ctemp_attack = &cardsX;
 	if (temp->checkBelong() == "项羽") {
@@ -142,8 +209,23 @@ void CardPackage::recuperate()//养精蓄锐
 }
 void CardPackage::chariot()//战车//群攻
 {
+	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
 	City* temp = &findCity();
+	while (temp->checkBelong() != Cards::find_name)
+	{
+		cout << "该城池不归属你，请重新选择" << endl;
+		temp = &findCity();
+	}
+	cout << "选择对手的城池" << endl;
 	City* temp_attack = &findCity();
+	string attack_name;
+	if (Cards::find_name == "刘邦")attack_name = "项羽";
+	else attack_name = "刘邦";
+	while (temp_attack->checkBelong() != attack_name)
+	{
+		cout << "该城池不归属你，请重新选择" << endl;
+		temp_attack = &findCity();
+	}
 	Cards* Ctemp = &cardsL;
 	Cards* Ctemp_attack = &cardsX;
 	if (temp->checkBelong() == "项羽") {
@@ -159,8 +241,23 @@ void CardPackage::chariot()//战车//群攻
 }
 void CardPackage::infantry()//步兵
 {
+	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
 	City* temp = &findCity();
+	while (temp->checkBelong() != Cards::find_name)
+	{
+		cout << "该城池不归属你，请重新选择" << endl;
+		temp = &findCity();
+	}
+	cout << "选择对手的城池" << endl;
 	City* temp_attack = &findCity();
+	string attack_name;
+	if (Cards::find_name == "刘邦")attack_name = "项羽";
+	else attack_name = "刘邦";
+	while (temp_attack->checkBelong() != attack_name)
+	{
+		cout << "该城池不归属你，请重新选择" << endl;
+		temp_attack = &findCity();
+	}
 	City change(1200);
 	*temp += change;
 	cout << temp->checkBelong() << "兵力增强了1200" << endl;
@@ -168,8 +265,23 @@ void CardPackage::infantry()//步兵
 }
 void CardPackage::spearman()//枪兵/暂无回合设定，战力减少
 {
-	City *temp = &findCity();
-	City *temp_attack = &findCity();
+	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
+	City* temp = &findCity();
+	while (temp->checkBelong() != Cards::find_name)
+	{
+		cout << "该城池不归属你，请重新选择" << endl;
+		temp = &findCity();
+	}
+	cout << "选择对手的城池" << endl;
+	City* temp_attack = &findCity();
+	string attack_name;
+	if (Cards::find_name == "刘邦")attack_name = "项羽";
+	else attack_name = "刘邦";
+	while (temp_attack->checkBelong() != attack_name)
+	{
+		cout << "该城池不归属你，请重新选择" << endl;
+		temp_attack = &findCity();
+	}
 	City change(700);
 	*temp += change;
 	cout << temp->checkBelong() << "兵力增强了700" << endl;
@@ -177,8 +289,23 @@ void CardPackage::spearman()//枪兵/暂无回合设定，战力减少
 }
 void CardPackage::archer()//弓箭手
 {
+	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
 	City* temp = &findCity();
+	while (temp->checkBelong() != Cards::find_name)
+	{
+		cout << "该城池不归属你，请重新选择" << endl;
+		temp = &findCity();
+	}
+	cout << "选择对手的城池" << endl;
 	City* temp_attack = &findCity();
+	string attack_name;
+	if (Cards::find_name == "刘邦")attack_name = "项羽";
+	else attack_name = "刘邦";
+	while (temp_attack->checkBelong() != attack_name)
+	{
+		cout << "该城池不归属你，请重新选择" << endl;
+		temp_attack = &findCity();
+	}
 	City* M = &cityMid;
 	int n = 1000;
 	if (M->checkBelong() == temp->checkBelong()) {
@@ -192,8 +319,23 @@ void CardPackage::archer()//弓箭手
 }
 void CardPackage::test10() 
 {
+	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
 	City* temp = &findCity();
+	while (temp->checkBelong() != Cards::find_name)
+	{
+		cout << "该城池不归属你，请重新选择" << endl;
+		temp = &findCity();
+	}
+	cout << "选择对手的城池" << endl;
 	City* temp_attack = &findCity();
+	string attack_name;
+	if (Cards::find_name == "刘邦")attack_name = "项羽";
+	else attack_name = "刘邦";
+	while (temp_attack->checkBelong() != attack_name)
+	{
+		cout << "该城池不归属你，请重新选择" << endl;
+		temp_attack = &findCity();
+	}
 	Cards* Ctemp = &cardsL;
 	Cards* Ctemp_attack = &cardsX;
 	if (temp->checkBelong() == "项羽") {
