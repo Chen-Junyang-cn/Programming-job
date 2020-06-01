@@ -3,7 +3,12 @@ City::City(const string s)
 {
 	troops = 1000;
 	belong = s;
-	distance = 3;
+	if (s == "Áõ°î")
+		distance = 1;
+	else if (s == "ÏîÓð")
+		distance = 3;
+	else
+		distance = 2;
 }
 void City::fight()
 {
