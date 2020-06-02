@@ -35,19 +35,16 @@ void City::fight()
 	c1->troops -= c1Num;
 	if (c1->belong == c2->belong) // 战斗判定阶段
 	{
+		c2->troops += c1Num;//归属相同，屯兵
 		cout << "你已选择屯兵，战斗回合结束" << endl;
-		if (c1 == c2)//屯兵于当前城池，兵力不会变动
-			return;
-		c2->troops += c1Num;
+		return;
 	}
 	if (c1Num > c2->troops)	//c1兵力占优
 	{
 		c2->belong = belong;//c2被占领
 		c2->troops -= c1Num;
-		c1->distance++;		//占领城池，攻击距离增加
-		c2->distance++;		//c2被占领
 	}
-	else if (c1->troops == c2->troops)//兵力相同
+	else if (c1Num == c2->troops)//兵力相同
 	{
 		c2->belong = "中立";		//城池中立
 		c2->troops = 0;

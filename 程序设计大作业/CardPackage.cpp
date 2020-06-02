@@ -31,7 +31,7 @@ void CardPackage::saber()//saber
 	else attack_name = "刘邦";
 	while (temp_attack->checkBelong() != attack_name)
 	{
-		cout << "该城池不归属你，请重新选择" << endl;
+		cout << "非敌方城池，请重新选择" << endl;
 		temp_attack = &findCity();
 	}
 	City injure(500);//伤害临时

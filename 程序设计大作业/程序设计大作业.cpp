@@ -23,7 +23,7 @@ int main()
 		cardsL.showCard();
 		cityL.fight();	//刘邦对项羽进攻
 		cityL.show();			//刘邦城池的状态
-		cout << "项羽回合：" << endl;
+		cout << endl << "项羽回合：" << endl;
 		cardsX.insertCard();
 		cardsX.showCard();
 		cardsX.useCard(); 
