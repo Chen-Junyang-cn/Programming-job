@@ -9,14 +9,15 @@ CardNumber::CardNumber()
 	numberPackage[5] = "战车";
 	numberPackage[6] = "步兵";
 	numberPackage[7] = "枪兵";
-	numberPackage[8] = "弓箭手";//
-	numberPackage[9] = "10";
+	numberPackage[8] = "弓箭手";
+	numberPackage[9] = "佯攻";
+	numberPackage[10] = "突袭";
 }
 
 int CardNumber::findNumber(string name)
 {
 	//int number;
-	for (int i = 0; i < 10; i++)//这里的编码包暂时设置为10
+	for (int i = 0; i <= 10; i++)//卡牌共11张
 	{
 		if (name == numberPackage[i])
 		{
@@ -28,6 +29,6 @@ int CardNumber::findNumber(string name)
 
 string CardNumber::getRandName()
 {
-	int ran = rand() % 10;
+	int ran = rand() % 11;
 	return numberPackage[ran];
 }

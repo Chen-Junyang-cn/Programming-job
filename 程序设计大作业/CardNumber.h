@@ -13,7 +13,6 @@ public:
 	string getRandName();	//随机获得名字，在抽牌阶段需要
 	~CardNumber() {};
 private:
-	string numberPackage[10];//编码包
+	string numberPackage[11];//编码包
 };
 #endif
-

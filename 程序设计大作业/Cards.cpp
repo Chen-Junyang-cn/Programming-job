@@ -1,6 +1,7 @@
 #include "Cards.h"
 Cards::Cards(const string n) 
 {
+	srand(int(time(0)));//初始化种子，方便后续随机抽牌
 	Node* s = new Node;
 	head = s;
 	head->next = nullptr;
@@ -20,13 +21,14 @@ void Cards::insertCard()
 }
 
 string Cards::find_name = "空";
+
 void Cards::useCard()
 {
 	find_name = head->name;
 	string s;
 	cout << endl << "输入你想使用的卡牌：";
 	cin >> s;
-	(this->*test[findNumber(s)])();//测试卡包的调用情况
+	(this->*card[findNumber(s)])();//测试卡包的调用情况
 	deleteCard(s);
 }
 

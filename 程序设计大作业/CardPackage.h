@@ -10,13 +10,13 @@ extern City cityMid;
 class Cards;
 extern Cards cardsL;
 extern Cards cardsX;
-class CardPackage //卡牌包，记录各种卡牌，最终设想使用函数指针数组，将各个功能打包放入数组内统一调用
+class CardPackage //卡牌包，记录各种卡牌，使用函数指针数组，将各个功能打包放入数组内统一调用
 {
 	//friend class City;
 	
 public:
 	CardPackage();
-	void(CardPackage::* test[10])();//类函数指针数组的声明
+	void(CardPackage::* card[11])();//类函数指针数组的声明
 	static City& findCity();	//当用户需要指定城市时，调用这个函数，找到用户输入对应的函数
 	~CardPackage() {} 
 private:
@@ -29,7 +29,8 @@ private:
 	void infantry();//步兵
 	void spearman();//枪兵
 	void archer();//弓箭手
-	void test10();//佯攻
+	void feint();//佯攻
+	void strike();//突袭
 };
 
 #endif

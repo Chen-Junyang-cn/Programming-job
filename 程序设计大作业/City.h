@@ -7,9 +7,7 @@ using std::ostream; using std::istream; using std::endl; using std::string; usin
 //using namespace std;
 #include "CardPackage.h"
 class City
-{
-	//friend void CardPackage::test1();
-	
+{	
 public:
 	City(const string s);
 	City(const double temp) :troops(temp) {};//卡牌内临时数据
@@ -19,12 +17,13 @@ public:
 	void show() ;		//输出还有多少兵力
 	void fight();		//战斗阶段
 	void adjustTroops(double);//留一个对外接口用于改变私有数据的兵力
+	void adjustDistance();//调整两座主城之间的攻击距离
 	bool judge();		//判定阶段
 	int selectTroops(); //选择出击的军队数量
 	string checkBelong();	  //接口，查看城池的归属
 
-	int distance;		//攻击距离。刘邦是1，项羽是3，中立城池是2
 private:
+	int distance;		//攻击距离。刘邦是1，项羽是3，中立城池是2
 	double troops;		//兵力
 	string belong;		//归属
 };

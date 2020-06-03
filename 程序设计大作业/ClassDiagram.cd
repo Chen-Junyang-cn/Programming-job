@@ -8,26 +8,23 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CardPackage">
-    <Position X="3.75" Y="0.5" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
+    <Position X="6" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAEAAAQAAACAAAAIAABQIAAAIAAIAAgAAAIE=</HashCode>
+      <HashCode>AAAAAAAAACACAQAgAABAAAIIEAAAgCAIAAAAAgAAIAQ=</HashCode>
       <FileName>CardPackage.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Node">
-    <Position X="1" Y="3" Width="1.5" />
+    <Position X="1.25" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAMAAAA=</HashCode>
       <FileName>Cards.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Cards">
-    <Position X="3.75" Y="2.25" Width="1.5" />
+    <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAkAAAAAAAAAAAAAAIAABAAAAAAAAAACAAAAA=</HashCode>
+      <HashCode>AAQAAAAAkAAAAAAAAAAAAAAIAABAAAAAAAAAADAAAAQ=</HashCode>
       <FileName>Cards.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -35,9 +32,9 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="City">
-    <Position X="6.25" Y="1" Width="1.5" />
+    <Position X="8.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAICAAAAAAABAAAAAAABIAAhAAAAAA=</HashCode>
+      <HashCode>AAABAAAAAAAAIAAICAAAAQAABEAAAAAABIAChAAAAAA=</HashCode>
       <FileName>City.h</FileName>
     </TypeIdentifier>
   </Class>

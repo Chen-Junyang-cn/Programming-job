@@ -3,18 +3,21 @@
 #include <iostream>
 #include <cstring>
 #include <ctime>
+#include<windows.h>
+#include<Mmsystem.h>
 #include "City.h"
 #include "Cards.h"
 #include "CardPackage.h"
 #include "CardNumber.h"
+#pragma comment(lib,"winmm.lib")
 using namespace std;
 City cityL("刘邦"), cityX("项羽"), cityMid("战略城池");
 Cards cardsL("刘邦"), cardsX("项羽");
 int main()
 {
-	srand(int(time(0)));//初始化种子，方便后续随机抽牌
+	PlaySound(L"bgm.wav", NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 	CardNumber numberL, numberX;
-	while (cityL.checkBelong() == "刘邦" && cityX.checkBelong() == "项羽")
+	while (cityL.checkBelong() == "刘邦" && cityX.checkBelong() == "项羽" && cityL.judge() && cityX.judge())
 	{
 		cout << "刘邦回合：" << endl;
 		cardsL.insertCard();

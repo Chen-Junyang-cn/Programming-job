@@ -2,6 +2,7 @@
 #ifndef _Cards_h_
 #define _Cards_h_
 #include <iostream>
+#include <ctime>
 #include "CardNumber.h"
 #include "CardPackage.h"
 using namespace std;
@@ -23,7 +24,7 @@ public:
 	void useCard();
 	void deleteCard(string);
 	void showCard();
-	static string find_name;
+	static string find_name;//寻找出牌阶段时那一方的名字
 	Node* findhead() { return head; }//找头节点
 private:
 	Node* head;

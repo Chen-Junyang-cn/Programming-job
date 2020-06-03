@@ -3,16 +3,17 @@
 #include "Cards.h"
 CardPackage::CardPackage()
 {
-	test[0] = &CardPackage::saber;
-	test[1] = &CardPackage::beatback;
-	test[2] = &CardPackage::discord;
-	test[3] = &CardPackage::sage_model;
-	test[4] = &CardPackage::recuperate;
-	test[5] = &CardPackage::chariot;
-	test[6] = &CardPackage::infantry;
-	test[7] = &CardPackage::spearman;
-	test[8] = &CardPackage::archer;
-	test[9] = &CardPackage::test10;
+	card[0] = &CardPackage::saber;
+	card[1] = &CardPackage::beatback;
+	card[2] = &CardPackage::discord;
+	card[3] = &CardPackage::sage_model;
+	card[4] = &CardPackage::recuperate;
+	card[5] = &CardPackage::chariot;
+	card[6] = &CardPackage::infantry;
+	card[7] = &CardPackage::spearman;
+	card[8] = &CardPackage::archer;
+	card[9] = &CardPackage::feint;
+	card[10] = &CardPackage::strike;
 }
 
 void CardPackage::saber()//saber
@@ -299,8 +300,10 @@ void CardPackage::archer()//弓箭手
 	cout << "选择对手的城池" << endl;
 	City* temp_attack = &findCity();
 	string attack_name;
-	if (Cards::find_name == "刘邦")attack_name = "项羽";
-	else attack_name = "刘邦";
+	if (Cards::find_name == "刘邦")
+		attack_name = "项羽";
+	else 
+		attack_name = "刘邦";
 	while (temp_attack->checkBelong() != attack_name)
 	{
 		cout << "该城池不归属你，请重新选择" << endl;
@@ -317,7 +320,7 @@ void CardPackage::archer()//弓箭手
 	cout << temp->checkBelong() << "兵力增强了" <<n<< endl;
 	temp->show();
 }
-void CardPackage::test10() 
+void CardPackage::feint() //佯攻，佯攻锁定卡牌有什么用？
 {
 	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
 	City* temp = &findCity();
@@ -345,6 +348,22 @@ void CardPackage::test10()
 	temp->show();
 }
 
+void CardPackage::strike()//突袭，通过改变攻击距离直接攻击其主城
+{
+	cout << "你正在发动突袭（此次突袭无视攻击距离）" << endl;
+	if (Cards::find_name == "刘邦")//刘邦出牌阶段
+	{
+		cityL.adjustDistance();//改变距离
+		cityL.fight();//直接攻击
+		cityL.adjustDistance();//距离恢复
+	}
+	else
+	{
+		cityX.adjustDistance();
+		cityX.fight();
+		cityX.adjustDistance();
+	}
+}
 
 City& CardPackage::findCity()
 {

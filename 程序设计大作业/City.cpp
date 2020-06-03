@@ -27,7 +27,7 @@ void City::fight()
 		c2 = &CardPackage::findCity();
 	}
 	int c1Num = selectTroops();	//选择出兵数量阶段
-	while (c1Num >= c1->troops)
+	while (c1Num > c1->troops)
 	{
 		cout << "你的兵力不足，请重新选择" << endl;
 		c1Num = selectTroops();
@@ -57,7 +57,26 @@ void City::fight()
 
 void City::show()
 {
-	cout << "城池剩余兵力：" << troops << "城池的归属：" << belong << endl;
+	cout << "城池剩余兵力：" << troops << endl;
+	cout << "城池的归属：" << belong << endl;
+}
+
+void City::adjustDistance()
+{
+	if (belong == "项羽")	//项羽的城池
+	{
+		if (distance == 3)	//距离未改变
+			distance = 2;	//缩短两主城距离差值
+		else 
+			distance = 3;
+	}
+	else//刘邦的城池
+	{
+		if (distance == 1) // 未改变
+			distance = 2;
+		else
+			distance = 1;
+	}
 }
 
 void City::adjustTroops(double ratio)
@@ -95,4 +114,3 @@ City& City::operator-=(const  City& temp)
 	this->troops -= temp.troops;
 	return *this;
 }
-
