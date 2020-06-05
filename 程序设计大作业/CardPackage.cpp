@@ -69,8 +69,8 @@ void CardPackage::beatback()//破釜沉舟
 	}
 	else temp_attack->army() > temp->army() ? temp->adjustTroops(1.7) : temp->adjustTroops(1);
 	temp_attack->army() > 2 * temp->army() ? temp->adjustTroops(1.4) : temp->adjustTroops(1);
-	double difference = temp->army() - record;//差值
-	//需再定义一个变量记录回合//返回一个差值再下一会合减去
+	double difference = temp->army() - record;
+	temp->change_static(difference);
 	temp->show();
 }
 void CardPackage::discord()//反间计
@@ -283,7 +283,10 @@ void CardPackage::spearman()//枪兵/暂无回合设定，战力减少
 		cout << "该城池不归属你，请重新选择" << endl;
 		temp_attack = &findCity();
 	}
-	City change(700);
+	static int time = 0;
+	time++;
+	double mor = 700.0 + time * 100;
+	City change(mor);
 	*temp += change;
 	cout << temp->checkBelong() << "兵力增强了700" << endl;
 	temp->show();
@@ -320,7 +323,7 @@ void CardPackage::archer()//弓箭手
 	cout << temp->checkBelong() << "兵力增强了" <<n<< endl;
 	temp->show();
 }
-void CardPackage::feint() //佯攻，佯攻锁定卡牌有什么用？
+void CardPackage::feint() //势如破竹
 {
 	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
 	City* temp = &findCity();
@@ -345,6 +348,7 @@ void CardPackage::feint() //佯攻，佯攻锁定卡牌有什么用？
 		Ctemp = &cardsX;
 		Ctemp_attack = &cardsL;
 	}
+	temp->change_static(City::difference*1.5);//百分之60免伤
 	temp->show();
 }
 

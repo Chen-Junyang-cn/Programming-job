@@ -1,4 +1,5 @@
 #include "Cards.h"
+#include"City.h"
 Cards::Cards(const string n) 
 {
 	srand(int(time(0)));//初始化种子，方便后续随机抽牌
@@ -30,6 +31,17 @@ void Cards::useCard()
 	cin >> s;
 	(this->*card[findNumber(s)])();//测试卡包的调用情况
 	deleteCard(s);
+	if (s == "破釜沉舟") {
+		if (head->name == "刘邦")
+			cityL.change_static(false);//改变兵力，后一回合生效
+		else cityX.change_static(false);
+	}
+	else if (s == "佯攻") {
+		if (head->name == "刘邦")
+			cityL.change_static(true);//改变兵力，后一回合生效
+		else cityX.change_static(true);
+	}
+	City::difference = 0;//重新置0计算
 }
 
 void Cards::deleteCard(string name)//待优化，如果输入一个错误的名字，那么应该重新输入

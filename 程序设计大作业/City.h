@@ -21,7 +21,9 @@ public:
 	bool judge();		//判定阶段
 	int selectTroops(); //选择出击的军队数量
 	string checkBelong();	  //接口，查看城池的归属
-
+	static double difference;//回合卡牌作用的差值
+	void change_static(bool);//卡牌改变的静态变量来改变兵力
+	void change_static(double);//卡牌作用下改变静态变量
 private:
 	int distance;		//攻击距离。刘邦是1，项羽是3，中立城池是2
 	double troops;		//兵力

@@ -20,7 +20,7 @@ public:
 	static City& findCity();	//当用户需要指定城市时，调用这个函数，找到用户输入对应的函数
 	~CardPackage() {} 
 private:
-	void saber();
+	void saber();//骑兵
 	void beatback();//破釜沉舟
 	void discord();//反间计
 	void sage_model();//贤者之心

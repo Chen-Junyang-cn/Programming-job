@@ -33,12 +33,16 @@ void City::fight()
 		c1Num = selectTroops();
 	}
 	c1->troops -= c1Num;
+	if (difference == 0) {//佯攻数据采集
+		difference = c1Num;
+	}
 	if (c1->belong == c2->belong) // 战斗判定阶段
 	{
 		c2->troops += c1Num;//归属相同，屯兵
 		cout << "你已选择屯兵，战斗回合结束" << endl;
 		return;
 	}
+
 	if (c1Num > c2->troops)	//c1兵力占优
 	{
 		c2->belong = belong;//c2被占领
@@ -113,4 +117,16 @@ City& City::operator-=(const  City& temp)
 {
 	this->troops -= temp.troops;
 	return *this;
+}
+double City::difference = 0;
+void City::change_static(double diff)
+{
+	difference = diff + difference;
+}
+void City::change_static(bool flag)
+{
+	if (flag) {
+		troops = troops + difference;
+	}
+	else troops = troops - difference;
 }
