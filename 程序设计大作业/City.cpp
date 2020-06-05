@@ -50,7 +50,7 @@ void City::fight()
 	}
 	else if (c1Num == c2->troops)//兵力相同
 	{
-		c2->belong = "中立";		//城池中立
+		//被攻击的城池归属不改变
 		c2->troops = 0;
 	}
 	else

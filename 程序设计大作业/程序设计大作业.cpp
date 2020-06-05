@@ -26,6 +26,8 @@ int main()
 		cardsL.showCard();
 		cityL.fight();	//刘邦对项羽进攻
 		cityL.show();			//刘邦城池的状态
+		if (cityX.checkBelong() != "项羽")//项羽已经被打败
+			break;
 		cout << endl << "项羽回合：" << endl;
 		cardsX.insertCard();
 		cardsX.showCard();
