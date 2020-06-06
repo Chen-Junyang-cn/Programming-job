@@ -17,24 +17,25 @@ int main()
 {
 	PlaySound(L"bgm.wav", NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 	CardNumber numberL, numberX;
-	while (cityL.checkBelong() == "刘邦" && cityX.checkBelong() == "项羽" && cityL.judge() && cityX.judge())
+	while (cityL.checkBelong() == "刘邦" && cityX.checkBelong() == "项羽")
 	{
 		cout << "刘邦回合：" << endl;
 		cardsL.insertCard();
 		cardsL.showCard();
 		cardsL.useCard();
 		cardsL.showCard();
-		cityL.fight();	//刘邦对项羽进攻
+		cityL.fight();			//刘邦对项羽进攻
 		cityL.show();			//刘邦城池的状态
 		if (cityX.checkBelong() != "项羽")//项羽已经被打败
-			break;
+			cityL.win();		//刘邦胜利
 		cout << endl << "项羽回合：" << endl;
 		cardsX.insertCard();
 		cardsX.showCard();
 		cardsX.useCard(); 
-		cityX.fight();	//项羽对刘邦进攻
+		cityX.fight();		//项羽对刘邦进攻
 		cityX.show();		//项羽城池的状态
 	}
+	cityX.win();			//项羽胜利
 }
 
 

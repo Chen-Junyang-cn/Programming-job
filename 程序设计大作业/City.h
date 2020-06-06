@@ -18,7 +18,7 @@ public:
 	void fight();		//战斗阶段
 	void adjustTroops(double);//留一个对外接口用于改变私有数据的兵力
 	void adjustDistance();//调整两座主城之间的攻击距离
-	bool judge();		//判定阶段
+	void win();		//输出胜利的函数
 	int selectTroops(); //选择出击的军队数量
 	string checkBelong();	  //接口，查看城池的归属
 	static double difference;//回合卡牌作用的差值

@@ -11,6 +11,7 @@ Cards::Cards(const string n)
 	insertCard();
 	insertCard();
 	insertCard();
+	Sleep(1000);
 }
 
 void Cards::insertCard()

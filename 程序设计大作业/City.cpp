@@ -29,7 +29,7 @@ void City::fight()
 	int c1Num = selectTroops();	//选择出兵数量阶段
 	while (c1Num > c1->troops)
 	{
-		cout << "你的兵力不足，请重新选择" << endl;
+		cout << "你的拥有的兵力为：" << troops << "请重新选择" << endl;
 		c1Num = selectTroops();
 	}
 	c1->troops -= c1Num;
@@ -101,11 +101,11 @@ int City::selectTroops()
 	return num;
 }
 
-bool City::judge()
+void City::win()
 {
-	if (troops > 0)
-		return true;
-	return false;
+	system("cls");
+	cout << belong << "获得游戏胜利！" << endl;
+	exit(0);
 }
 
 City& City::operator+=(const  City& temp)

@@ -3,6 +3,7 @@
 #define _Cards_h_
 #include <iostream>
 #include <ctime>
+#include <Windows.h>
 #include "CardNumber.h"
 #include "CardPackage.h"
 using namespace std;
