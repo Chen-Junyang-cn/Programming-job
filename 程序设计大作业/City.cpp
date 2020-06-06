@@ -33,7 +33,7 @@ void City::fight()
 		c1Num = selectTroops();
 	}
 	c1->troops -= c1Num;
-	if (difference == 0) {//佯攻数据采集
+	if (difference == 0) {//数据采集
 		difference = c1Num;
 	}
 	if (c1->belong == c2->belong) // 战斗判定阶段
@@ -128,5 +128,5 @@ void City::change_static(bool flag)
 	if (flag) {
 		troops = troops + difference;
 	}
-	else troops = troops - difference;
+	else troops = (troops + difference) / 2.0;
 }

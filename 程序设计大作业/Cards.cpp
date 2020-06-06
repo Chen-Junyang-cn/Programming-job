@@ -25,24 +25,26 @@ string Cards::find_name = "空";
 
 void Cards::useCard()
 {
+
 	find_name = head->name;
 	string s;
-	cout << endl << "输入你想使用的卡牌：";
-	cin >> s;
-	(this->*card[findNumber(s)])();//测试卡包的调用情况
-	deleteCard(s);
-	if (s == "破釜沉舟") {
-		if (head->name == "刘邦")
+	static string pre_s="empty";
+	if (pre_s == "破釜沉舟") {
+		if (head->name == "项羽")
 			cityL.change_static(false);//改变兵力，后一回合生效
 		else cityX.change_static(false);
-		City::difference = 0;//重新置0计算
 	}
-	else if (s == "佯攻") {
-		if (head->name == "刘邦")
+	else if (pre_s == "佯攻") {
+		if (head->name == "项羽")
 			cityL.change_static(true);//改变兵力，后一回合生效
 		else cityX.change_static(true);
-		City::difference = 0;
+		City::difference = 0;//重新置0计算
 	}
+	cout << endl << "输入你想使用的卡牌：";
+	cin >> s;
+	pre_s = s;
+	(this->*card[findNumber(s)])();//测试卡包的调用情况
+	deleteCard(s);
 }
 
 void Cards::deleteCard(string name)//待优化，如果输入一个错误的名字，那么应该重新输入
