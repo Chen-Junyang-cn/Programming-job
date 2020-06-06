@@ -52,16 +52,7 @@ void CardPackage::beatback()//破釜沉舟
 		cout << "该城池不归属你，请重新选择" << endl;
 		temp = &findCity();
 	}
-	cout << "选择对手的城池" << endl;
 	City* temp_attack = &findCity();
-	string attack_name;
-	if (Cards::find_name == "刘邦")attack_name = "项羽";
-	else attack_name = "刘邦";
-	while (temp_attack->checkBelong() != attack_name)
-	{
-		cout << "该城池不归属你，请重新选择" << endl;
-		temp_attack = &findCity();
-	}
 	double record = temp->army();
 	if (temp->checkBelong() == "刘邦") {
 		temp_attack->army() > temp->army() ? temp->adjustTroops(1.5) : temp->adjustTroops(1);
@@ -71,6 +62,7 @@ void CardPackage::beatback()//破釜沉舟
 	temp_attack->army() > 2 * temp->army() ? temp->adjustTroops(1.4) : temp->adjustTroops(1);
 	double difference = temp->army() - record;
 	temp->change_static(difference);
+	if (difference)cout << temp->checkBelong() << "在本回合兵力增强了" << difference << endl;
 	temp->show();
 }
 void CardPackage::discord()//反间计
@@ -99,8 +91,13 @@ void CardPackage::discord()//反间计
 		Ctemp_attack = &cardsL;
 	}
 	string seize; Node* i; int j;
-	cout << temp->checkBelong() << "的卡牌有：";
-	for (i = Ctemp_attack->findhead(), j = 0; i != nullptr; i = i->next, j++) {//对手卡牌展示
+	cout << Ctemp_attack->findhead()->name << endl;
+	cout << temp_attack->checkBelong() << "的卡牌有：";
+	Cards::find_name = temp_attack->checkBelong();
+	for (i = cardsX.findhead()->next, j = 0; i != nullptr; i = i->next, j++) {//对手卡牌展示
+		cout << i->name << "  ";//对方卡牌名字
+	}
+	for (i = Ctemp_attack->findhead()->next, j = 0; i != nullptr; i = i->next, j++) {//对手卡牌展示
 		cout << i->name << "  ";//对方卡牌名字
 	}
 	cout << "请输入要入手的（对方）卡牌" << endl;
