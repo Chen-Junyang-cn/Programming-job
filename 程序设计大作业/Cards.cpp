@@ -35,13 +35,14 @@ void Cards::useCard()
 		if (head->name == "刘邦")
 			cityL.change_static(false);//改变兵力，后一回合生效
 		else cityX.change_static(false);
+		City::difference = 0;//重新置0计算
 	}
 	else if (s == "佯攻") {
 		if (head->name == "刘邦")
 			cityL.change_static(true);//改变兵力，后一回合生效
 		else cityX.change_static(true);
+		City::difference = 0;
 	}
-	City::difference = 0;//重新置0计算
 }
 
 void Cards::deleteCard(string name)//待优化，如果输入一个错误的名字，那么应该重新输入

@@ -94,9 +94,6 @@ void CardPackage::discord()//反间计
 	cout << Ctemp_attack->findhead()->name << endl;
 	cout << temp_attack->checkBelong() << "的卡牌有：";
 	Cards::find_name = temp_attack->checkBelong();
-	for (i = cardsX.findhead()->next, j = 0; i != nullptr; i = i->next, j++) {//对手卡牌展示
-		cout << i->name << "  ";//对方卡牌名字
-	}
 	for (i = Ctemp_attack->findhead()->next, j = 0; i != nullptr; i = i->next, j++) {//对手卡牌展示
 		cout << i->name << "  ";//对方卡牌名字
 	}
@@ -174,7 +171,7 @@ void CardPackage::recuperate()//养精蓄锐
 		Ctemp_attack = &cardsL;
 	}
 	Node* i; int j; string strength[10], record[3];
-	for (i = Ctemp->findhead(), j = 0; i != nullptr; i = i->next, j++) {
+	for (i = Ctemp->findhead()->next, j = 0; i != nullptr; i = i->next, j++) {
 		strength[j] = i->name;
 	}//己方卡牌组合成数组
 	for (int k = 0; k < 3; k++) { 
@@ -183,27 +180,33 @@ void CardPackage::recuperate()//养精蓄锐
 	cout << endl;
 	cout << "请选择卡牌（步兵、骑兵、战车加成较大）：" << endl;
 	string select;//选择的卡牌
-	cin >> select;
-	for (i = Ctemp->findhead(), j = 0; i != nullptr; i = i->next, j++) //依据选择的卡牌进行兵力的增强
-	{
-		if (i->next->name == select) {
-			if (select == "saber" || select == "chariot" || select == "infantry") {
-				City change(1500);
-				*temp += change;
-				cout << temp->checkBelong() << "兵力增强了1500" << endl;
-			}
-			else {
-				City change(500);
-				*temp += change;
-				cout << temp->checkBelong() << "兵力增强了500" << endl;
+	while (1) {
+		cin >> select;
+		for (i = Ctemp->findhead()->next, j = 0; i != nullptr; i = i->next, j++) //依据选择的卡牌进行兵力的增强
+		{
+			if (i->name == select) {
+				if (select == "骑兵" || select == "战车" || select == "步兵") {
+					City change(1500);
+					*temp += change;
+					cout << temp->checkBelong() << "兵力增强了1500" << endl;
+					temp->show();
+					return;
+				}
+				else {
+					City change(500);
+					*temp += change;
+					cout << temp->checkBelong() << "兵力增强了500" << endl;
+					temp->show();
+					return;
+				}
 			}
 		}
+		if (i == nullptr) {
+			cout << temp->checkBelong() << "无此卡牌，请重新输入：";
+			continue;
+		}
+		
 	}
-	if (i == nullptr) {
-		cout << temp->checkBelong() << "无此卡牌，请重新输入：";
-		CardPackage::recuperate();
-	}
-	temp->show();
 }
 void CardPackage::chariot()//战车//群攻
 {
