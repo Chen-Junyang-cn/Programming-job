@@ -272,8 +272,8 @@ void CardPackage::spearman()//枪兵，每使用一次，增强战力逐渐增加
 		temp_attack = &findCity();
 	}
 	static int time = 0;
-	time++;
-	double mor = 700.0 + time * 100.0;
+    while(time<5)time++;
+	double mor = 1000.0 + time * 100.0;
 	City change(mor);
 	*temp += change;
 	cout << temp->checkBelong() << "兵力增强了700" << endl;
