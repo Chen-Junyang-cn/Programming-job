@@ -43,16 +43,23 @@ void Cards::useCard()
 	}
 	cout << endl << "输入你想使用的卡牌：";
 	cin >> s;
-	int num = findNumber(s);	//如果没有这张卡则返回-1
-	while (num == -1)	//没有相应卡牌
+	int num = -1;
+	while (num == -1)
 	{
+		for (Node* i = head; i != nullptr; i = i->next)
+		{
+			if (i->next->name == s) //手牌中有这张卡牌
+			{
+				num = findNumber(s);//寻找这张卡牌的编码
+				pre_s = s;
+				(this->*card[num])();//测试卡包的调用情况
+				deleteCard(s);
+				return;
+			}
+		}//遍历手牌都没有找到相应的卡牌
 		cout << "没有这张卡牌，请重新选择卡牌" << endl;
 		cin >> s;
-		num = findNumber(s);
 	}
-	pre_s = s;
-	(this->*card[num])();//测试卡包的调用情况
-	deleteCard(s);
 }
 
 void Cards::deleteCard(string name)

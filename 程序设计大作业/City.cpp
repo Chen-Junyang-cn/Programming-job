@@ -46,7 +46,7 @@ void City::fight()
 	if (c1Num > c2->troops)	//c1兵力占优
 	{
 		c2->belong = belong;//c2被占领
-		c2->troops -= c1Num;
+		c2->troops = c1Num - c2->troops;
 	}
 	else if (c1Num == c2->troops)//兵力相同
 	{

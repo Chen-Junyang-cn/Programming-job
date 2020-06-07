@@ -268,18 +268,8 @@ void CardPackage::spearman()//枪兵，每使用一次，增强战力逐渐增加
 		cout << "该城池不归属你，请重新选择" << endl;
 		temp = &findCity();
 	}
-	cout << "选择对手的城池" << endl;
-	City* temp_attack = &findCity();
-	string attack_name;
-	if (Cards::find_name == "刘邦")attack_name = "项羽";
-	else attack_name = "刘邦";
-	while (temp_attack->checkBelong() != attack_name)
-	{
-		cout << "该城池不归属你，请重新选择" << endl;
-		temp_attack = &findCity();
-	}
 	static int time = 0;
-    while(time<5)time++;
+    if(time<5)time++;
 	double mor = 1000.0 + time * 100.0;
 	City change(mor);
 	*temp += change;
@@ -299,8 +289,8 @@ void CardPackage::archer()//弓箭手,守城时额外战力加成
 	City* temp_attack;//选择对方城池阶段
 	if (temp->checkBelong() == "刘邦")temp_attack = &cityX;
 	else temp_attack = &cityL;
-	if (temp->checkBelong() == "刘邦")temp_attack = &cityX;
-	else temp_attack = &cityL;
+	if (temp->checkBelong() == "项羽")temp_attack = &cityL;
+	else temp_attack = &cityX;
 	City* M = &cityMid;
 	int n = 1000;
 	if (M->checkBelong() == temp->checkBelong()) {
