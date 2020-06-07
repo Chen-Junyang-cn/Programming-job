@@ -118,14 +118,10 @@ City& City::operator-=(const  City& temp)
 	return *this;
 }
 double City::difference = 0;
-void City::change_static(double diff)
-{
-	difference = diff + difference;
-}
 void City::change_static(bool flag)
 {
 	if (flag) {
-		troops = troops + difference;
+		troops = troops + difference*0.4;
 	}
-	else troops = (troops + difference) / 2.0;
+	else troops = troops / 2.0;
 }

@@ -34,6 +34,7 @@ void Cards::useCard()
 		if (head->name == "项羽")
 			cityL.change_static(false);//改变兵力，后一回合生效
 		else cityX.change_static(false);
+		City::difference = 0;//重新置0计算
 	}
 	else if (pre_s == "佯攻") {
 		if (head->name == "项羽")

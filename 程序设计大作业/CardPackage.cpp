@@ -65,7 +65,7 @@ void CardPackage::beatback()//破釜沉舟
 	if (temp->army() - record)cout << temp->checkBelong() << "使用‘破釜沉舟’" << "在本回合兵力增强了" << temp->army() - record << endl;
 	else {
 		cout << temp->checkBelong() << "使用‘破釜沉舟’" << "兵力无变化";
-		cout << "该回合后兵力减少一半" << endl;
+		cout << "，该回合后兵力减少一半" << endl;
 	}
 		temp->show();
 }
@@ -276,7 +276,7 @@ void CardPackage::spearman()//枪兵，每使用一次，增强战力逐渐增加
 	double mor = 1000.0 + time * 100.0;
 	City change(mor);
 	*temp += change;
-	cout << temp->checkBelong() << "兵力增强了700" << endl;
+	cout << temp->checkBelong() << "兵力增强了" << mor << endl;
 	temp->show();
 }
 void CardPackage::archer()//弓箭手,守城时额外战力加成
@@ -288,7 +288,9 @@ void CardPackage::archer()//弓箭手,守城时额外战力加成
 		cout << "该城池不归属你，请重新选择" << endl;
 		temp = &findCity();
 	}
-	City* temp_attack = &findCity();
+	City* temp_attack;//选择对方城池阶段
+	if (temp->checkBelong() == "刘邦")temp_attack = &cityX;
+	else temp_attack = &cityL;
 	if (temp->checkBelong() == "刘邦")temp_attack = &cityX;
 	else temp_attack = &cityL;
 	City* M = &cityMid;
@@ -328,7 +330,6 @@ void CardPackage::feint() //势如破竹
 		Ctemp_attack = &cardsL;
 	}
 	cout << temp->checkBelong() << "使用‘势如破竹’在该回合免伤40%" << endl;
-	temp->change_static(City::difference*1.5);
 	temp->show();
 }
 
