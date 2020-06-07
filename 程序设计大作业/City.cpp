@@ -61,8 +61,7 @@ void City::fight()
 
 void City::show()
 {
-	cout << "³Ç³ØÊ£Óà±øÁ¦£º" << troops << endl;
-	cout << "³Ç³ØµÄ¹éÊô£º" << belong << endl;
+	cout << belong << "³Ç³ØÊ£Óà±øÁ¦£º" << troops << endl << endl;
 }
 
 void City::adjustDistance()

@@ -10,13 +10,12 @@ CardNumber::CardNumber()
 	numberPackage[6] = "步兵";
 	numberPackage[7] = "枪兵";
 	numberPackage[8] = "弓箭手";
-	numberPackage[9] = "佯攻";
+	numberPackage[9] = "势如破竹";
 	numberPackage[10] = "突袭";
 }
 
 int CardNumber::findNumber(string name)
 {
-	//int number;
 	for (int i = 0; i <= 10; i++)//卡牌共11张
 	{
 		if (name == numberPackage[i])
@@ -24,7 +23,7 @@ int CardNumber::findNumber(string name)
 			return i;
 		}
 	}
-	return 0;
+	return -1;	//没有找到相应的卡牌
 }
 
 string CardNumber::getRandName()

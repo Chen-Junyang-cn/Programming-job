@@ -29,7 +29,7 @@ private:
 	void infantry();//²½±ø
 	void spearman();//Ç¹±ø
 	void archer();//¹­¼ıÊÖ
-	void feint();//Ñğ¹¥
+	void feint();//ÊÆÈçÆÆÖñ
 	void strike();//Í»Ï®
 };
 

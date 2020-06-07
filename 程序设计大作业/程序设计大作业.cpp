@@ -28,7 +28,7 @@ int main()
 		cityL.show();			//刘邦城池的状态
 		if (cityX.checkBelong() != "项羽")//项羽已经被打败
 			cityL.win();		//刘邦胜利
-		cout << endl << "项羽回合：" << endl;
+		cout << "项羽回合：" << endl;
 		cardsX.insertCard();
 		cardsX.showCard();
 		cardsX.useCard(); 

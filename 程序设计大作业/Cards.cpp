@@ -29,7 +29,7 @@ void Cards::useCard()
 
 	find_name = head->name;
 	string s;
-	static string pre_s="empty";
+	static string pre_s = "empty";
 	if (pre_s == "破釜沉舟") {
 		if (head->name == "项羽")
 			cityL.change_static(false);//改变兵力，后一回合生效
@@ -43,12 +43,19 @@ void Cards::useCard()
 	}
 	cout << endl << "输入你想使用的卡牌：";
 	cin >> s;
+	int num = findNumber(s);	//如果没有这张卡则返回-1
+	while (num == -1)	//没有相应卡牌
+	{
+		cout << "没有这张卡牌，请重新选择卡牌" << endl;
+		cin >> s;
+		num = findNumber(s);
+	}
 	pre_s = s;
-	(this->*card[findNumber(s)])();//测试卡包的调用情况
+	(this->*card[num])();//测试卡包的调用情况
 	deleteCard(s);
 }
 
-void Cards::deleteCard(string name)//待优化，如果输入一个错误的名字，那么应该重新输入
+void Cards::deleteCard(string name)
 {
 	for (Node* i = head; i != nullptr; i = i->next)
 	{

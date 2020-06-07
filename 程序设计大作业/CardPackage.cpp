@@ -16,7 +16,7 @@ CardPackage::CardPackage()
 	card[10] = &CardPackage::strike;
 }
 
-void CardPackage::saber()//saber
+void CardPackage::saber()//骑兵
 {
 	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
 	City* temp = &findCity();
@@ -38,7 +38,7 @@ void CardPackage::saber()//saber
 	City injure(500);//伤害临时
 	City change(400);//兵力变化临时
 	*temp_attack -= injure;
-	cout << temp->checkBelong() << "使用'saber'对" << temp_attack->checkBelong();
+	cout << temp->checkBelong() << "使用'骑兵'对" << temp_attack->checkBelong();
 	cout << "造成了500点伤害" << endl;
 	*temp += change;
 	temp->show();
@@ -327,7 +327,7 @@ void CardPackage::feint() //势如破竹
 		Ctemp = &cardsX;
 		Ctemp_attack = &cardsL;
 	}
-	cout << temp->checkBelong() << "使用佯攻‘势如破竹’在该回合免伤40%" << endl;
+	cout << temp->checkBelong() << "使用‘势如破竹’在该回合免伤40%" << endl;
 	temp->change_static(City::difference*1.5);
 	temp->show();
 }
