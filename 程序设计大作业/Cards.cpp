@@ -26,7 +26,6 @@ string Cards::find_name = "空";
 
 void Cards::useCard()
 {
-
 	find_name = head->name;
 	string s;
 	static string pre_s = "empty";
@@ -36,7 +35,7 @@ void Cards::useCard()
 		else cityX.change_static(false);
 		City::difference = 0;//重新置0计算
 	}
-	else if (pre_s == "佯攻") {
+	else if (pre_s == "势如破竹") {
 		if (head->name == "项羽")
 			cityL.change_static(true);//改变兵力，后一回合生效
 		else cityX.change_static(true);

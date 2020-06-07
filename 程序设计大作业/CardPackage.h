@@ -29,7 +29,7 @@ private:
 	void infantry();//步兵
 	void spearman();//枪兵
 	void archer();//弓箭手
-	void feint();//势如破竹
+	void dominating();//势如破竹
 	void strike();//突袭
 };
 

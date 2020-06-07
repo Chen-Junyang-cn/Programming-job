@@ -12,7 +12,7 @@ CardPackage::CardPackage()
 	card[6] = &CardPackage::infantry;
 	card[7] = &CardPackage::spearman;
 	card[8] = &CardPackage::archer;
-	card[9] = &CardPackage::feint;
+	card[9] = &CardPackage::dominating;
 	card[10] = &CardPackage::strike;
 }
 
@@ -43,6 +43,7 @@ void CardPackage::saber()//骑兵
 	*temp += change;
 	temp->show();
 }
+
 void CardPackage::beatback()//破釜沉舟
 {
 	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
@@ -69,6 +70,7 @@ void CardPackage::beatback()//破釜沉舟
 	}
 		temp->show();
 }
+
 void CardPackage::discord()//反间计
 {
 	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
@@ -125,6 +127,7 @@ void CardPackage::discord()//反间计
 	cout << temp->checkBelong() << "得到" << temp_attack->checkBelong() << "卡牌" << seize << endl;
 	temp->show();
 }
+
 void CardPackage::sage_model()//贤者之心
 {
 	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
@@ -140,6 +143,7 @@ void CardPackage::sage_model()//贤者之心
 	else { cardsX.insertCard(); cardsX.insertCard(); }
 	temp->show();
 }
+
 void CardPackage::recuperate()//养精蓄锐
 {
 	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
@@ -203,6 +207,7 @@ void CardPackage::recuperate()//养精蓄锐
 		
 	}
 }
+
 void CardPackage::chariot()//战车//群攻
 {
 	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
@@ -238,6 +243,7 @@ void CardPackage::chariot()//战车//群攻
 	cout << temp_attack->checkBelong() << "兵力减少了" << j << endl;
 	temp->show();
 }
+
 void CardPackage::infantry()//步兵
 {
 	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
@@ -252,6 +258,7 @@ void CardPackage::infantry()//步兵
 	cout << temp->checkBelong() << "兵力增强了1200" << endl;
 	temp->show();
 }
+
 void CardPackage::spearman()//枪兵，每使用一次，增强战力逐渐增加
 {
 	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
@@ -279,6 +286,7 @@ void CardPackage::spearman()//枪兵，每使用一次，增强战力逐渐增加
 	cout << temp->checkBelong() << "兵力增强了" << mor << endl;
 	temp->show();
 }
+
 void CardPackage::archer()//弓箭手,守城时额外战力加成
 {
 	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
@@ -304,7 +312,8 @@ void CardPackage::archer()//弓箭手,守城时额外战力加成
 	cout << temp->checkBelong() << "使用‘弓箭手’使兵力增强了" <<n<< endl;
 	temp->show();
 }
-void CardPackage::feint() //势如破竹
+
+void CardPackage::dominating() //势如破竹
 {
 	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
 	City* temp = &findCity();
