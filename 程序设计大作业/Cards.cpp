@@ -46,9 +46,9 @@ void Cards::useCard()
 	int num = -1;
 	while (num == -1)
 	{
-		for (Node* i = head; i != nullptr; i = i->next)
+		for (Node* i = head->next; i != nullptr; i = i->next)
 		{
-			if (i->next->name == s) //手牌中有这张卡牌
+			if (i->name == s) //手牌中有这张卡牌
 			{
 				num = findNumber(s);//寻找这张卡牌的编码
 				pre_s = s;
@@ -64,9 +64,9 @@ void Cards::useCard()
 
 void Cards::deleteCard(string name)
 {
-	for (Node* i = head; i != nullptr; i = i->next)
+	for (Node* i = head->next; i != nullptr; i = i->next)
 	{
-		if (i->next->name == name)
+		if (i->name == name)
 		{
 			Node* x = i->next;
 			i->next = i->next->next;//删除操作

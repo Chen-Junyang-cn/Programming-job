@@ -96,7 +96,9 @@ void CardPackage::discord()//反间计
 		Ctemp = &cardsX;
 		Ctemp_attack = &cardsL;
 	}
-	string seize; Node* i; int j;
+	string seize;
+	Node* i;
+	int j; //记录卡牌数
 	cout << Ctemp_attack->findhead()->name << endl;
 	cout << temp_attack->checkBelong() << "的卡牌有：";
 	Cards::find_name = temp_attack->checkBelong();
