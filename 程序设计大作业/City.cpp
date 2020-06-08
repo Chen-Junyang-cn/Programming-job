@@ -29,7 +29,7 @@ void City::fight()
 	int c1Num = selectTroops();	//选择出兵数量阶段
 	while (c1Num > c1->troops)
 	{
-		cout << "你的拥有的兵力为：" << troops << "请重新选择" << endl;
+		cout << "你的拥有的兵力为：" << c1->troops << "请重新选择" << endl;
 		c1Num = selectTroops();
 	}
 	c1->troops -= c1Num;
@@ -127,7 +127,9 @@ City& City::operator-=(const  City& temp)
 	this->troops -= temp.troops;
 	return *this;
 }
+
 double City::difference = 0;
+
 void City::change_static(bool flag)
 {
 	if (flag) {
@@ -135,12 +137,13 @@ void City::change_static(bool flag)
 	}
 	else troops = troops / 2.0;
 }
-void City::incards_judge(string name)
+
+void City::changeBelong(string s)
 {
-	if (name == "刘邦"&& cityX.army() < 0) {
-			cityX.checkBelong() = "刘邦";
-	}
-	else if (name == "项羽" && cityL.army() < 0) {
-		cityL.checkBelong() = "项羽";
-	}
+	belong = s;
+}
+
+void City::changeTroops(double c)
+{
+	troops = c;
 }

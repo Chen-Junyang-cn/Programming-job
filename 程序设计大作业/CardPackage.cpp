@@ -35,11 +35,20 @@ void CardPackage::saber()//骑兵
 		cout << "非敌方城池，请重新选择" << endl;
 		temp_attack = &findCity();
 	}
-	City injure(500);//伤害临时
-	City change(400);//兵力变化临时
-	*temp_attack -= injure;
 	cout << temp->checkBelong() << "使用'骑兵'对" << temp_attack->checkBelong();
 	cout << "造成了500点伤害" << endl;
+	if ((*temp_attack).army() >= 500)
+	{
+		City injure(500);//伤害临时
+		*temp_attack -= injure;
+	}
+	else//兵力不足500城池被占领
+	{
+		(*temp_attack).changeBelong(temp->checkBelong());//被攻击的城池被攻击者占领
+		double injure = 500 - (*temp_attack).army();
+		(*temp_attack).changeTroops(injure);
+	}
+	City change(400);//兵力变化临时
 	*temp += change;
 	temp->show();
 }
