@@ -64,9 +64,9 @@ void Cards::useCard()
 
 void Cards::deleteCard(string name)
 {
-	for (Node* i = head->next; i != nullptr; i = i->next)
+	for (Node* i = head; i != nullptr; i = i->next)
 	{
-		if (i->name == name)
+		if (i->next->name == name)//要删除的卡牌必然在手牌中，所以i不可能为nullptr，因此i->next安全
 		{
 			Node* x = i->next;
 			i->next = i->next->next;//删除操作
