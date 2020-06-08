@@ -132,30 +132,24 @@ void CardPackage::discord()//反间计
 
 void CardPackage::sage_model()//贤者之心
 {
-	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
-	City* temp = &findCity();
-	while (temp->checkBelong() != Cards::find_name)
-	{
-		cout << "该城池不归属你，请重新选择" << endl;
-		temp = &findCity();
-	}
-	Cards* Ctemp = &cardsL;
-	Cards* Ctemp_attack = &cardsX;
-	if (temp->checkBelong() == "项羽") {
-		Ctemp = &cardsX;
-		Ctemp_attack = &cardsL;
-	}
 	cout << "正在随机抽选两张卡牌" << endl;
-	cout << temp->checkBelong() << "使用‘贤者之心’得到卡牌：";
-	if (temp->checkBelong() == "刘邦") {
-		cardsL.insertCard(); cardsL.insertCard();//随机插入卡牌
+	cout << Cards::find_name << "使用‘贤者之心’得到卡牌：";
+	Cards* Ctemp = &cardsL;
+	if (Cards::find_name == "刘邦") {//刘邦出牌阶段
+		cardsL.insertCard(); 
+		cardsL.insertCard();//随机插入卡牌
+
 	}
-	else { cardsX.insertCard(); cardsX.insertCard(); }
+	else //项羽出牌
+	{ 
+		cardsX.insertCard();
+		cardsX.insertCard(); 
+		Ctemp = &cardsX;
+	}
 	Node* i; int j;
 	for (i = Ctemp->findhead()->next, j = 0; j < 2; i = i->next, j++) {
 		cout << "‘" << i->name << "’" << endl;
 	}
-	temp->show();
 }
 
 void CardPackage::recuperate()//养精蓄锐
