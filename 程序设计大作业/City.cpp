@@ -61,6 +61,16 @@ void City::fight()
 
 void City::show()
 {
+	if (distance == 2)//如果展示中立城池
+	{
+		//设置字体颜色为绿色
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_BLUE | FOREGROUND_GREEN);
+		cout << "中立城池归属：" << belong << " 兵力：" << troops << endl;
+		//输出后恢复
+		HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+		SetConsoleTextAttribute(handle, FOREGROUND_BLUE | FOREGROUND_RED | FOREGROUND_GREEN);
+		return;
+	}
 	cout << belong << "城池剩余兵力：" << troops << endl << endl;
 }
 
@@ -69,14 +79,14 @@ void City::adjustDistance()
 	if (belong == "项羽")	//项羽的城池
 	{
 		if (distance == 3)	//距离未改变
-			distance = 2;	//缩短两主城距离差值
+			distance = 1;	//缩短两主城距离差值
 		else 
 			distance = 3;
 	}
 	else//刘邦的城池
 	{
 		if (distance == 1) // 未改变
-			distance = 2;
+			distance = 3;
 		else
 			distance = 1;
 	}

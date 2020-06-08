@@ -167,21 +167,9 @@ void CardPackage::recuperate()//养精蓄锐
 		cout << "该城池不归属你，请重新选择" << endl;
 		temp = &findCity();
 	}
-	cout << "选择对手的城池" << endl;
-	City* temp_attack = &findCity();
-	string attack_name;
-	if (Cards::find_name == "刘邦")attack_name = "项羽";
-	else attack_name = "刘邦";
-	while (temp_attack->checkBelong() != attack_name)
-	{
-		cout << "该城池不归属你，请重新选择" << endl;
-		temp_attack = &findCity();
-	}
 	Cards* Ctemp = &cardsL;
-	Cards* Ctemp_attack = &cardsX;
 	if (temp->checkBelong() == "项羽") {
 		Ctemp = &cardsX;
-		Ctemp_attack = &cardsL;
 	}
 	Node* i; int j; string strength[10], record[3];
 	for (i = Ctemp->findhead()->next, j = 0; i != nullptr; i = i->next, j++) {
@@ -218,7 +206,6 @@ void CardPackage::recuperate()//养精蓄锐
 			cout << temp->checkBelong() << "无此卡牌，请重新输入：";
 			continue;
 		}
-		
 	}
 }
 
@@ -347,12 +334,14 @@ void CardPackage::strike()//突袭，通过改变攻击距离直接攻击其主城
 		cityL.adjustDistance();//改变距离
 		cityL.fight();//直接攻击
 		cityL.adjustDistance();//距离恢复
+		cout << "突袭结束" << endl;
 	}
 	else
 	{
 		cityX.adjustDistance();
 		cityX.fight();
 		cityX.adjustDistance();
+		cout << "突袭结束" << endl;
 	}
 }
 

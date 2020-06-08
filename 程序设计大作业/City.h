@@ -3,6 +3,7 @@
 #define _City_h_
 #include <iostream>
 #include <cstring>
+#include <Windows.h>
 using std::ostream; using std::istream; using std::endl; using std::string; using std::cout;
 //using namespace std;
 #include "CardPackage.h"
@@ -25,7 +26,7 @@ public:
 	static double difference;//回合卡牌作用的差值
 	void change_static(bool);//卡牌改变的静态变量来改变兵力
 private:
-	int distance;		//攻击距离。刘邦是1，项羽是3，中立城池是2
+	int distance;		//攻击距离。刘邦是1，项羽是3，中立城池恒为2，可当作中立城池的特殊标志
 	double troops;		//兵力
 	string belong;		//归属
 };
