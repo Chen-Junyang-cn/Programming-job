@@ -139,10 +139,22 @@ void CardPackage::sage_model()//贤者之心
 		cout << "该城池不归属你，请重新选择" << endl;
 		temp = &findCity();
 	}
+	Cards* Ctemp = &cardsL;
+	Cards* Ctemp_attack = &cardsX;
+	if (temp->checkBelong() == "项羽") {
+		Ctemp = &cardsX;
+		Ctemp_attack = &cardsL;
+	}
+	cout << "正在随机抽选两张卡牌" << endl;
+	cout << temp->checkBelong() << "使用‘贤者之心’得到卡牌：";
 	if (temp->checkBelong() == "刘邦") {
 		cardsL.insertCard(); cardsL.insertCard();//随机插入卡牌
 	}
 	else { cardsX.insertCard(); cardsX.insertCard(); }
+	Node* i; int j;
+	for (i = Ctemp->findhead()->next, j = 0; j < 2; i = i->next, j++) {
+		cout << "‘" << i->name << "’" << endl;
+	}
 	temp->show();
 }
 

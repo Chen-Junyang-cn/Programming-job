@@ -125,3 +125,12 @@ void City::change_static(bool flag)
 	}
 	else troops = troops / 2.0;
 }
+void City::incards_judge(string name)
+{
+	if (name == "¡ı∞Ó"&& cityX.army() < 0) {
+			cityX.checkBelong() = "¡ı∞Ó";
+	}
+	else if (name == "œÓ”" && cityL.army() < 0) {
+		cityL.checkBelong() = "œÓ”";
+	}
+}

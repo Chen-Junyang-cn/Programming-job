@@ -29,6 +29,7 @@ void Cards::useCard()
 	find_name = head->name;
 	string s;
 	static string pre_s = "empty";
+	
 	if (pre_s == "破釜沉舟") {
 		if (head->name == "项羽")
 			cityL.change_static(false);//改变兵力，后一回合生效
