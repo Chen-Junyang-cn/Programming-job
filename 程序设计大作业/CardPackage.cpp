@@ -88,15 +88,9 @@ void CardPackage::discord()//反间计
 		temp = &findCity();
 	}
 	cout << "选择对手的城池" << endl;
-	City* temp_attack = &findCity();
-	string attack_name;
-	if (Cards::find_name == "刘邦")attack_name = "项羽";
-	else attack_name = "刘邦";
-	while (temp_attack->checkBelong() != attack_name)
-	{
-		cout << "该城池不归属你，请重新选择" << endl;
-		temp_attack = &findCity();
-	}
+	City* temp_attack;//选择对方城池阶段
+	if (temp->checkBelong() == "刘邦")temp_attack = &cityX;
+	else temp_attack = &cityL;
 	Cards* Ctemp = &cardsL;
 	Cards* Ctemp_attack = &cardsX;
 	if(temp->checkBelong()=="项羽") {
@@ -296,10 +290,13 @@ void CardPackage::archer()//弓箭手,守城时额外战力加成
 		temp = &findCity();
 	}
 	City* temp_attack;//选择对方城池阶段
-	if (temp->checkBelong() == "刘邦")temp_attack = &cityX;
-	else temp_attack = &cityL;
-	if (temp->checkBelong() == "项羽")temp_attack = &cityL;
-	else temp_attack = &cityX;
+	if (cityMid.checkBelong() != "中立") {
+		if (temp->checkBelong() == "刘邦")temp_attack = &cityX;
+		else temp_attack = &cityL;
+		if (temp->checkBelong() == "项羽")temp_attack = &cityL;
+		else temp_attack = &cityX;
+	}
+	else temp_attack = &cityMid;
 	City* M = &cityMid;
 	int n = 1000;
 	if (M->checkBelong() == temp->checkBelong()) {
