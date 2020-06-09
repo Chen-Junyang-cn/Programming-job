@@ -27,10 +27,7 @@ void CardPackage::saber()//骑兵
 	}
 	cout << "选择对手的城池" << endl;
 	City* temp_attack = &findCity();
-	string attack_name;
-	if (Cards::find_name == "刘邦")attack_name = "项羽";
-	else attack_name = "刘邦";
-	while (temp_attack->checkBelong() != attack_name)
+	while (temp_attack->checkBelong() == Cards::find_name)
 	{
 		cout << "非敌方城池，请重新选择" << endl;
 		temp_attack = &findCity();
@@ -50,6 +47,7 @@ void CardPackage::saber()//骑兵
 	}
 	City change(400);//兵力变化临时
 	*temp += change;
+	cout << temp->checkBelong() << "的兵力增加了400" << endl;
 	temp->show();
 }
 
@@ -242,9 +240,19 @@ void CardPackage::chariot()//战车//群攻
 	City change_add( j/2);//cards检索对方卡牌数量//攻击力设定
 	*temp += change_add;
 	cout << temp->checkBelong() << "兵力增强了" <<  j/2 << endl;
-	City change_minus(j);
-	*temp_attack -= change_minus;
-	cout << temp_attack->checkBelong() << "兵力减少了" << j << endl;
+	if ((*temp_attack).army() >= j)
+	{
+		City injure(j);//伤害临时
+		*temp_attack -= injure;
+		cout << temp_attack->checkBelong() << "兵力减少了" << j << endl;
+	}
+	else//兵力不足城池被占领
+	{
+		cout << temp_attack->checkBelong() << "兵力减少了" << temp_attack->army() << " " << temp_attack->checkBelong() << "被攻占"<<endl;
+		temp_attack->changeBelong(temp->checkBelong());//被攻击的城池被攻击者占领
+		double injure = j - (*temp_attack).army();
+		temp_attack->changeTroops(injure);
+	}
 	temp->show();
 }
 
