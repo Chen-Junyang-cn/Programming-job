@@ -213,20 +213,17 @@ void CardPackage::recuperate()//养精蓄锐
 void CardPackage::chariot()//战车//群攻
 {
 	cout << "选择你要出卡的城池" << endl;	//选择城池阶段
-	City* temp = &findCity();//选择己方城池阶段
+	City* temp = &findCity();
 	while (temp->checkBelong() != Cards::find_name)
 	{
 		cout << "该城池不归属你，请重新选择" << endl;
 		temp = &findCity();
 	}
-	cout << "选择对手的城池" << endl;//选择对方城池阶段
+	cout << "选择对手的城池" << endl;
 	City* temp_attack = &findCity();
-	string attack_name;
-	if (Cards::find_name == "刘邦")attack_name = "项羽";
-	else attack_name = "刘邦";
-	while (temp_attack->checkBelong() != attack_name)
+	while (temp_attack->checkBelong() == Cards::find_name)
 	{
-		cout << "该城池不归属你，请重新选择" << endl;
+		cout << "非敌方城池，请重新选择" << endl;
 		temp_attack = &findCity();
 	}
 	Cards* Ctemp = &cardsL;
