@@ -134,7 +134,7 @@ void CardPackage::discord()//反间计
 void CardPackage::sage_model()//贤者之心
 {
 	cout << "正在随机抽选两张卡牌" << endl;
-	cout << Cards::find_name << "使用‘贤者之心’得到卡牌：";
+	cout << Cards::find_name << "使用‘贤者之心’得到卡牌：" << endl;
 	Cards* Ctemp = &cardsL;
 	if (Cards::find_name == "刘邦") {//刘邦出牌阶段
 		cardsL.insertCard(); 
@@ -290,22 +290,19 @@ void CardPackage::archer()//弓箭手,守城时额外战力加成
 		temp = &findCity();
 	}
 	City* temp_attack;//选择对方城池阶段
-	if (cityMid.checkBelong() != "中立") {
-		if (temp->checkBelong() == "刘邦")temp_attack = &cityX;
-		else temp_attack = &cityL;
-		if (temp->checkBelong() == "项羽")temp_attack = &cityL;
-		else temp_attack = &cityX;
-	}
-	else temp_attack = &cityMid;
+	if (temp->checkBelong() == "刘邦")temp_attack = &cityX;
+	else temp_attack = &cityL;
+	if (temp->checkBelong() == "项羽")temp_attack = &cityL;
+	else temp_attack = &cityX;
 	City* M = &cityMid;
 	int n = 1000;
 	if (M->checkBelong() == temp->checkBelong()) {
 		n += 700;
 	}
-	else if(M->checkBelong() == temp_attack->checkBelong()) n -= 300;
+	else if (M->checkBelong() == temp_attack->checkBelong()) n -= 300;
 	City change(n);
 	*temp += change;
-	cout << temp->checkBelong() << "使用‘弓箭手’使兵力增强了" <<n<< endl;
+	cout << temp->checkBelong() << "使用‘弓箭手’使兵力增强了" << n << endl;
 	temp->show();
 }
 
