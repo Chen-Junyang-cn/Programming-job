@@ -112,7 +112,7 @@ int City::selectTroops()
 
 void City::win()
 {
-	system("cls");
+	//system("cls");
 	cout << belong << "获得游戏胜利！" << endl;
 	exit(0);
 }

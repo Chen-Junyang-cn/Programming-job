@@ -108,7 +108,7 @@ void CardPackage::discord()//反间计
 	}
 	cout << "请输入要入手的（对方）卡牌" << endl;
 	cin >> seize;
-	for (i = Ctemp_attack->findhead(); i != nullptr; i = i->next)//反间抢夺卡牌
+	for (i = Ctemp_attack->findhead(); i ->next!= nullptr; i = i->next)//反间抢夺卡牌
 	{
 		if (i->next->name == seize)
 		{
@@ -122,7 +122,7 @@ void CardPackage::discord()//反间计
 			break;
 		}
 	}
-	if (i == nullptr) {
+	if (i ->next== nullptr) {
 		cout << temp_attack->checkBelong() << "无此牌" << endl;
 		cout << "请重新输入：" << endl;
 		CardPackage::discord();//重新执行函数
