@@ -125,6 +125,7 @@ void CardPackage::discord()//反间计
 	if (i ->next== nullptr) {
 		cout << temp_attack->checkBelong() << "无此牌" << endl;
 		cout << "请重新输入：" << endl;
+		Cards::find_name = temp->checkBelong();
 		CardPackage::discord();//重新执行函数
 	}
 	cout << temp->checkBelong() << "得到" << temp_attack->checkBelong() << "卡牌" << seize << endl;
