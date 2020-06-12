@@ -4,9 +4,8 @@
 #include <iostream>
 #include <cstring>
 #include <Windows.h>
-using std::ostream; using std::istream; using std::endl; using std::string; using std::cout;
-//using namespace std;
 #include "CardPackage.h"
+using namespace std;
 class City
 {	
 public:

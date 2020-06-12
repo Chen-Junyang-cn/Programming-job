@@ -16,14 +16,12 @@ Cards cardsL("刘邦"), cardsX("项羽");
 int main()
 {
 	PlaySound(L"bgm.wav", NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
-	CardNumber numberL, numberX;
 	while (cityL.checkBelong() == "刘邦" && cityX.checkBelong() == "项羽")
 	{
 		cout << "刘邦回合：" << endl;
 		cardsL.insertCard();
 		cardsL.showCard();
 		cardsL.useCard();
-		cardsL.showCard();
 		cityL.fight();			//刘邦对项羽进攻
 		cityL.show();			//刘邦城池的状态
 		if (cityX.checkBelong() != "项羽")//项羽已经被打败
